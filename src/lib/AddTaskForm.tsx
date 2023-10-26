@@ -7,7 +7,7 @@ interface TaskForm {
 const AddTaskForm: React.FC<TaskForm> = ({field, onTextAdd, onClickAdd}) => {
     return(
         <form id="form">
-            <input type="text" placeholder="something" onChange={onTextAdd} value={field}/>
+            <input className="form-field" type="text" placeholder="something..." required onChange={onTextAdd} value={field}/>
             <button onClick={onClickAdd}>Add task</button>
         </form>
     );

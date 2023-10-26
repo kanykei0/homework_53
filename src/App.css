@@ -4,3 +4,27 @@
   padding: 2rem;
   text-align: center;
 }
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.form-field {
+  padding: 10px 30px;
+  border-radius: 20px;
+  margin-right: 30px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+  border-radius: 20px;
+}
+
+.task-text {
+  margin-right: 20px;
+}

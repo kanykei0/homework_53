@@ -18,11 +18,13 @@ function App() {
 
   const AddNewTask = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const currentDate = new Date();
-    const idDate = currentDate.toISOString().replace(/[:.-]/g, "");
-    const newTask = {id: idDate, text: currentValue};
-    setTasks([...tasks, newTask]);
-    setCurrentValue('');
+    if(currentValue){
+      const currentDate = new Date();
+      const idDate = currentDate.toISOString().replace(/[:.-]/g, "");
+      const newTask = {id: idDate, text: currentValue};
+      setTasks([...tasks, newTask]);
+      setCurrentValue('');
+    }
   };
 
   const deleteTask = (id: string) => {
