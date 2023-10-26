@@ -5,13 +5,23 @@ import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState([
-    {id: '20231026T074434706Z', text: 'Hello, World! My name is John Doe'},
-    {id: '20231026T074531496Z', text: 'Good bye? imma going sleep'},
-    {id: '20231026T074559080Z', text: 'We call him Ilon Mask'},
+    {id: '20231026T074434706Z', text: 'Hello, World! My name is John Doe.'},
+    {id: '20231026T074531496Z', text: 'Goodbye! See you tomorrow, Jane.'},
+    {id: '20231026T074559080Z', text: 'We call him Ilon Mask.'},
   ]);
+  const [currentValue, setCurrentValue] = useState('')
 
-  const AddText = () => {
+  const AddText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentValue(event.target.value);
+  };
 
+  const AddNewTask = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const currentDate = new Date();
+    const idDate = currentDate.toISOString().replace(/[:.-]/g, "");
+    const newTask = {id: idDate, text: currentValue }
+    setTasks([...tasks, newTask]);
+    setCurrentValue('');
   };
 
   const renderTasks = () => {
@@ -24,7 +34,7 @@ function App() {
 
   return (
     <>
-     <AddTaskForm field='' onTextAdd = {AddText}/>
+     <AddTaskForm field='' onTextAdd = {AddText} onClickAdd = {AddNewTask}/>
      <div>{renderTasks()}</div>
     </>
   )
