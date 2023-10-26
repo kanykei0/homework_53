@@ -4,10 +4,10 @@ interface TaskForm {
     onClickAdd: React.MouseEventHandler;
 } 
 
-const AddTaskForm: React.FC<TaskForm> = ({ onTextAdd, onClickAdd}) => {
+const AddTaskForm: React.FC<TaskForm> = ({field, onTextAdd, onClickAdd}) => {
     return(
         <form id="form">
-            <input type="text" placeholder="something" onChange={onTextAdd}/>
+            <input type="text" placeholder="something" onChange={onTextAdd} value={field}/>
             <button onClick={onClickAdd}>Add task</button>
         </form>
     );
